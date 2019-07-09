@@ -12,17 +12,17 @@ import { MatDialog } from '@angular/material';
 export class HomeComponent implements OnInit {
   ngOnInit() {
   }
-  paths = [[{'path':'assets/elephants/img1.jpg','name':'img1'},{'path':'assets/elephants/img2.jpg','name':'img2'},{'path':'assets/elephants/img3.jpg','name':'img3'},{'path':'assets/elephants/img4.jpeg','name':'img4'}],
-  [{'path':'assets/giraffies/img1.jpg','name':'img1'},{'path':'assets/giraffies/img2.jpg','name':'img2'},{'path':'assets/giraffies/img3.png','name':'img3'},{'path':'assets/giraffies/img4.png','name':'img4'}]]
+  paths = [[{'path':['assets/elephants/img1.jpg'],'name':'img1'},{'path':['assets/elephants/img2.jpg'],'name':'img2'},{'path':['assets/elephants/img3.jpg'],'name':'img3'},{'path':['assets/elephants/img4.jpeg'],'name':'img4'}],
+  [{'path':['assets/giraffies/img1.jpg'],'name':'img1'},{'path':['assets/giraffies/img2.jpg'],'name':'img2'},{'path':['assets/giraffies/img3.png'],'name':'img3'},{'path':['assets/giraffies/img4.png'],'name':'img4'}]]
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {} 
 
-  openDialog(event,path): void {
+  openDialog(event,path,i,j): void { 
     let pos = event.target.getBoundingClientRect();
     const filterData = {
       top : pos.top ,
       left : pos.left-pos.width/2,
-      img : path 
+      images : path 
       };
     let  dialogRef = this.dialog.open(DialogComponent, {
         width: `${pos.width*3}px`,
@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
         panelClass: 'filter-popup'
       });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      
+      this.paths[i][j]['path'].push('assets/uploads/'+result);
+      console.log(this.paths); 
     });
   }
 
