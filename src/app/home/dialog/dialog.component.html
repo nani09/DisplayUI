@@ -9,9 +9,9 @@
           <div class='col-md-6 col-xs-6 col-sm-6'> 
             <div class="row" id="container"> 
               <div class="d-sm-flex align-items-sm-start" style="display: flex;flex-wrap: wrap;">
-                <div *ngIf='lengthGraterThanOne' style="display:flex; max-width: 200px; flex-direction: row;flex-wrap: wrap; padding-right: 10px">
+                <div *ngIf='lengthGraterThanOne' style="display:flex; max-width: 200px; flex-direction: row;flex-wrap: wrap; padding-right:0 10px 10px ">
                   <div *ngFor="let img of filterData.images" >
-                    <img src={{img.imagePath}} alt="" style="max-width:75px;max-height:50px;padding-right: 10px">
+                    <img src={{img.imagePath}} alt="" style="max-width:75px;max-height:50px;padding:0 10px 10px 0">
                   </div>
                 </div>
                 <div>
