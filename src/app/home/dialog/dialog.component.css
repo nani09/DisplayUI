@@ -4,6 +4,3 @@
       align-items: center;
       float: left
 }
-#container {
-  flex-wrap: nowrap;
-}

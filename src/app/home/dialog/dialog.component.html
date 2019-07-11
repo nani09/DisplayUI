@@ -6,12 +6,12 @@
           <div class="col-md-6 col-xs-6 col-sm-6">
             <img src='{{filterData.images[0].imagePath}}' alt="" style="max-width:100px;max-height:100px">
           </div>
-          <div class='col-md-6 col-xs-6 col-sm-6'>
+          <div class='col-md-6 col-xs-6 col-sm-6'> 
             <div class="row" id="container"> 
-              <div class="d-sm-flex align-items-sm-start">
-                <div *ngIf='lengthGraterThanOne' style="display:flex; flex-direction: row; padding-right: 5px">
+              <div class="d-sm-flex align-items-sm-start" style="display: flex;flex-wrap: wrap;">
+                <div *ngIf='lengthGraterThanOne' style="display:flex; max-width: 200px; flex-direction: row;flex-wrap: wrap; padding-right: 10px">
                   <div *ngFor="let img of filterData.images" >
-                    <img src={{img.imagePath}} alt="" style="max-width:75px;max-height:50px">
+                    <img src={{img.imagePath}} alt="" style="max-width:75px;max-height:50px;padding-right: 10px">
                   </div>
                 </div>
                 <div>
@@ -20,7 +20,7 @@
                     (change)="handleFileInput($event.target.files)">
                 </div>
               </div>
-            </div>
+            </div> 
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
     <div class="row" style="padding-top:10px">
       <form class="example-form" style="min-width: 20px;max-width: 30px;width: 100%;flex-direction: column;">
           <mat-form-field class="">
-            <input matInput placeholder="Title" value="Elephant">
+            <input matInput placeholder="Title" ([ngModel])=filterData.images[0].imageName  >
           </mat-form-field>
         
           <mat-form-field class="">
