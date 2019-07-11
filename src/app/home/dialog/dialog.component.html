@@ -1,36 +1,43 @@
 <mat-card class="example-card">
   <mat-card-content>
-    <div mat-dialog-content>
-      <div class="row" style="overflow:hidden">
-        <div class="col-md-4 col-xs-4 col-sm-4">
-          <img src='{{filterData.images[0]}}' alt="" style="max-width:100px;max-height:100px">
-        </div>
-        <div class='col-md-8 col-xs-8 col-sm-8'>
-          <div class="d-sm-flex align-items-sm-start">
-            <div *ngIf='lengthGraterThanOne'>
-              <div *ngFor="let img of data.images">
-                <img src={{img}} alt="" style="max-width:75px;max-height:50px">
+    <div class="row">
+      <div mat-dialog-content>
+        <div class="row" style="overflow:hidden">
+          <div class="col-md-6 col-xs-6 col-sm-6">
+            <img src='{{filterData.images[0].imagePath}}' alt="" style="max-width:100px;max-height:100px">
+          </div>
+          <div class='col-md-6 col-xs-6 col-sm-6'>
+            <div class="row" id="container"> 
+              <div class="d-sm-flex align-items-sm-start">
+                <div *ngIf='lengthGraterThanOne' style="display:flex; flex-direction: row; padding-right: 5px">
+                  <div *ngFor="let img of filterData.images" >
+                    <img src={{img.imagePath}} alt="" style="max-width:75px;max-height:50px">
+                  </div>
+                </div>
+                <div>
+                  <label for="files" class="btn btn-primary btn-sm ">Add Image</label>
+                  <input id="files" style="visibility:hidden;" type="file"
+                    (change)="handleFileInput($event.target.files)">
+                </div>
               </div>
-            </div>
-            <div>
-              <label for="files" class="btn btn-primary btn-sm ">Add Image</label>
-              <input id="files" style="visibility:hidden;" type="file" (change)="handleFileInput($event.target.files)">
             </div>
           </div>
-          <!-- <div class="row">
-            <div *ngIf='lengthGraterThanOne'>
-              <div class="col-xs-6 col-sm-6" *ngFor="let img of data.images">
-                <img src={{img}} alt="" style="max-width:75px;max-height:50px">
-              </div>
-            </div>
-            <div class="col col-xs-6 col-sm-6">
-              <label for="files" class="btn btn-primary btn-sm ">Add Image</label>
-              <input id="files" style="visibility:hidden;" type="file" (change)="handleFileInput($event.target.files)">
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
+    <div class="row" style="padding-top:10px">
+      <form class="example-form" style="min-width: 20px;max-width: 30px;width: 100%;flex-direction: column;">
+          <mat-form-field class="">
+            <input matInput placeholder="Title" value="Elephant">
+          </mat-form-field>
+        
+          <mat-form-field class="">
+              <input matInput placeholder="Price" value="$10">
+            </mat-form-field>
+        </form>
+    </div>
+       
+    
   </mat-card-content>
   <mat-card-actions>
     <div mat-dialog-actions>

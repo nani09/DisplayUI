@@ -1,5 +1,6 @@
 import { Component, OnInit,  Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-dialog',
@@ -12,12 +13,15 @@ export class DialogComponent implements OnInit{
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   filterData: any; 
-  fileToUpload: any;
   lengthGraterThanOne: boolean = false;
-
+  fileToUpload = {
+  'imagePrice' : '',
+  'offerPrice':'',
+  'imageName' : '',
+  'imagePath':''
+  }
   ngOnInit() {
     this.filterData = this.data;
-    console.log(this.filterData.images)
     this.dialogRef.updatePosition({ top: `${this.filterData.top}px`,
     left: `${this.filterData.left}px`});
   }
@@ -26,9 +30,15 @@ export class DialogComponent implements OnInit{
   }
 
   handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0).name;
-    this.data.images.push('assets/uploads/'+this.fileToUpload)
-    console.log(this.data)
+    let temp = {
+      'imagePrice' : '',
+      'offerPrice':'',
+      'imageName' : '',
+      'imagePath':''
+      }
+    temp['imagePath'] = 'assets/uploads/'+files.item(0).name;
+    this.filterData.images.push(temp);
+    this.fileToUpload = temp;
     this.lengthGraterThanOne = true;
 }
 

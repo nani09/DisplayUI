@@ -1,16 +1,16 @@
 <div class="container">
-  <div class="row" *ngFor='let pathArr of paths;let i = index' style="padding-top:20px">
-    <div *ngFor='let animal of pathArr;let j = index' class="col-md-3">
-      <mat-card class="example-card">
-        <mat-card-content>
-            <img mat-card-image src="{{animal['path'][0]}}"  alt="Photo of a Elephant" (click)="openDialog($event,animal['path'],i,j)" style="width:150px; height: 200px;" >
-        </mat-card-content>
-        <mat-card-title>
-            {{animal['name']}}
-        </mat-card-title>
-      </mat-card>
+    <div class="row" *ngFor='let pathArr of paths;let i = index' style="padding-top:20px">
+      <div *ngFor='let animal of pathArr;let j = index' class="col-md-3">
+        <mat-card class="example-card">
+          <mat-card-content>
+<img mat-card-image src="{{animal[0]['imagePath']}}" (click)="openDialog($event,i,j)" style="width:150px; height: 200px;" >
+
+          </mat-card-content>
+          <mat-card-title>
+              <!-- {{animal[0]['imageName']}} / -->
+          </mat-card-title>
+        </mat-card>
+      </div>
     </div>
   </div>
-</div>
-
-     
+  

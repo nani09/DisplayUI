@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule,MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { DialogComponent } from './home/dialog/dialog.component';
 
 @NgModule({
@@ -16,10 +16,12 @@ import { DialogComponent } from './home/dialog/dialog.component';
   ],
   imports: [
     BrowserModule,
+    MatFormFieldModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
+    MatInputModule,
     MatDialogModule
   ],
   entryComponents: [DialogComponent],
